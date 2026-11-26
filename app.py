@@ -150,7 +150,7 @@ div[data-testid="stWidgetLabel"] p {
     border: 1px solid #e2e8f0;
     padding: .75rem 1rem;
     border-radius: 12px;
-    color: #475569;
+    color: rouge;
     margin-top: .5rem;
 }
 div[data-testid="stAlert"] { border-radius: 13px; }
@@ -441,7 +441,6 @@ def onglet_prediction_multiple(cfg, scaler, pca, model, encoders, cle):
     st.markdown("### 📂 Importer un jeu de données")
     st.write(
         "Chargez un fichier CSV contenant plusieurs lignes. "
-        "L'application appliquera le modèle sélectionné à chaque ligne exploitable."
     )
 
     colonnes = cfg["colonnes"]
@@ -466,7 +465,7 @@ def onglet_prediction_multiple(cfg, scaler, pca, model, encoders, cle):
     )
 
     if fichier is None:
-        st.info("Importez un fichier CSV.")
+        st.info("")
         return
 
     try:
