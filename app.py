@@ -466,7 +466,7 @@ def onglet_prediction_multiple(cfg, scaler, pca, model, encoders, cle):
     )
 
     if fichier is None:
-        st.info("Importez un fichier CSV pour commencer les prédictions multiples.")
+        st.info("Importez un fichier CSV.")
         return
 
     try:
