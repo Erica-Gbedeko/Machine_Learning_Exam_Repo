@@ -24,7 +24,7 @@ st.markdown("""
 <style>
 .stApp {
     background: linear-gradient(135deg, #f5f7ff 0%, #edf2ff 52%, #f8faff 100%);
-    color: blanc;
+    color: #172554;
 }
 .block-container {
     max-width: 1250px;
@@ -39,7 +39,7 @@ st.markdown("""
     box-shadow: 0 12px 30px rgba(30, 41, 59, 0.16);
 }
 .hero h1 {
-    color: blanc !important;
+    color: #ffffff !important;
     margin: 0;
     padding: 0;
     border: 0;
@@ -48,21 +48,21 @@ st.markdown("""
     letter-spacing: -.7px;
 }
 .hero p {
-    color: rouge !important;
+    color: #dbeafe !important;
     margin: .55rem 0 0 0;
     font-size: 1rem;
 }
 h1, h2, h3 {
-    color: noire !important;
+    color: #172554 !important;
     font-weight: 750 !important;
 }
 h1 { border: 0; }
-div[data-testid="stCaptionContainer"] p { color: noire; }
+div[data-testid="stCaptionContainer"] p { color: #64748b; }
 
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #111827 0%, #1e1b4b 100%);
 }
-section[data-testid="stSidebar"] * { color: noire; }
+section[data-testid="stSidebar"] * { color: #f8fafc; }
 section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
     color: #cbd5e1;
 }
@@ -97,7 +97,7 @@ div[data-testid="stTextInput"]:hover {
     box-shadow: 0 5px 16px rgba(99,102,241,.10);
 }
 div[data-testid="stWidgetLabel"] p {
-    color: bleu;
+    color: #334155;
     font-weight: 650;
 }
 
@@ -540,12 +540,12 @@ def onglet_prediction_multiple(cfg, scaler, pca, model, encoders, cle):
 # INTERFACE PRINCIPALE : NAVIGATION + BANDEAU + DEUX ONGLETS
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.markdown("## 🤖 Erica APP")
+    st.markdown("## 🤖 CAH Studio")
     st.caption("Espace de segmentation")
     st.divider()
 
     choix = st.radio(
-        "CHOISIR UN MODÈLE DE DONNÉES",
+        "CHOISIR UN MODÈLE",
         list(DATASETS.keys()),
         key="dataset_choisi"
     )
