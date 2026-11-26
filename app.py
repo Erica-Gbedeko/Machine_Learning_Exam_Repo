@@ -62,7 +62,7 @@ div[data-testid="stCaptionContainer"] p { color: noire; }
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #111827 0%, #1e1b4b 100%);
 }
-section[data-testid="stSidebar"] * { color: #f8fafc; }
+section[data-testid="stSidebar"] * { color: noire; }
 section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
     color: #cbd5e1;
 }
