@@ -24,7 +24,7 @@ st.markdown("""
 <style>
 .stApp {
     background: linear-gradient(135deg, #f5f7ff 0%, #edf2ff 52%, #f8faff 100%);
-    color: noire;
+    color: blanc;
 }
 .block-container {
     max-width: 1250px;
