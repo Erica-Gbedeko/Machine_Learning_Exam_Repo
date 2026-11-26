@@ -48,7 +48,7 @@ st.markdown("""
     letter-spacing: -.7px;
 }
 .hero p {
-    color: noire !important;
+    color: blanc !important;
     margin: .55rem 0 0 0;
     font-size: 1rem;
 }
