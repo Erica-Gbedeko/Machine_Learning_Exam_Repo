@@ -24,7 +24,7 @@ st.markdown("""
 <style>
 .stApp {
     background: linear-gradient(135deg, #f5f7ff 0%, #edf2ff 52%, #f8faff 100%);
-    color: #172554;
+    color: noire;
 }
 .block-container {
     max-width: 1250px;
@@ -39,7 +39,7 @@ st.markdown("""
     box-shadow: 0 12px 30px rgba(30, 41, 59, 0.16);
 }
 .hero h1 {
-    color: #ffffff !important;
+    color: noire !important;
     margin: 0;
     padding: 0;
     border: 0;
@@ -48,7 +48,7 @@ st.markdown("""
     letter-spacing: -.7px;
 }
 .hero p {
-    color: #dbeafe !important;
+    color: noire !important;
     margin: .55rem 0 0 0;
     font-size: 1rem;
 }
