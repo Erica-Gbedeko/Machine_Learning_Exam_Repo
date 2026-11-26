@@ -89,6 +89,7 @@ div[data-testid="stFileUploader"] {
     padding: 10px 12px 5px 12px;
     box-shadow: 0 4px 13px rgba(30,64,175,.045);
     transition: all .2s ease;
+    color: black;
 }
 div[data-testid="stNumberInput"]:hover,
 div[data-testid="stSelectbox"]:hover,
