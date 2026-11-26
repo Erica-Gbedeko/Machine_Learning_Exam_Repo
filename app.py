@@ -48,7 +48,7 @@ st.markdown("""
     letter-spacing: -.7px;
 }
 .hero p {
-    color: blanc !important;
+    color: rouge !important;
     margin: .55rem 0 0 0;
     font-size: 1rem;
 }
@@ -97,7 +97,7 @@ div[data-testid="stTextInput"]:hover {
     box-shadow: 0 5px 16px rgba(99,102,241,.10);
 }
 div[data-testid="stWidgetLabel"] p {
-    color: noire;
+    color: bleu;
     font-weight: 650;
 }
 
