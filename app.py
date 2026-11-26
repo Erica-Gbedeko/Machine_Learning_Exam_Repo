@@ -79,27 +79,53 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {
     border-color: rgba(165,180,252,.5);
 }
 
+/* Champs de saisie : fond blanc et bordure visible */
 div[data-testid="stNumberInput"],
 div[data-testid="stSelectbox"],
 div[data-testid="stTextInput"],
 div[data-testid="stFileUploader"] {
-    background: rgba(255,255,255,.92);
-    border: 1px solid #e2e8f0;
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
     border-radius: 13px;
     padding: 10px 12px 5px 12px;
-    box-shadow: 0 4px 13px rgba(30,64,175,.045);
+    box-shadow: 0 4px 13px rgba(30,64,175,.06);
     transition: all .2s ease;
-    color: black;
 }
+
+/* Intitulés des champs : texte foncé, plus grand et en gras */
+div[data-testid="stWidgetLabel"] p,
+div[data-testid="stWidgetLabel"] label,
+div[data-testid="stWidgetLabel"] span,
+div[data-testid="stFileUploader"] label {
+    color: #111827 !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    opacity: 1 !important;
+}
+
+/* Valeurs saisies dans les champs */
+div[data-testid="stNumberInput"] input,
+div[data-testid="stTextInput"] input,
+div[data-baseweb="input"] input {
+    color: #111827 !important;
+    background-color: #ffffff !important;
+    -webkit-text-fill-color: #111827 !important;
+    font-weight: 650 !important;
+    opacity: 1 !important;
+}
+
+/* Texte visible dans les listes déroulantes */
+div[data-baseweb="select"] * {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}
+
+/* Survol des champs */
 div[data-testid="stNumberInput"]:hover,
 div[data-testid="stSelectbox"]:hover,
 div[data-testid="stTextInput"]:hover {
-    border-color: #818cf8;
-    box-shadow: 0 5px 16px rgba(99,102,241,.10);
-}
-div[data-testid="stWidgetLabel"] p {
-    color: #334155;
-    font-weight: 650;
+    border-color: #4f46e5 !important;
+    box-shadow: 0 5px 16px rgba(99,102,241,.12);
 }
 
 .stButton > button,
@@ -151,7 +177,7 @@ div[data-testid="stWidgetLabel"] p {
     border: 1px solid #e2e8f0;
     padding: .75rem 1rem;
     border-radius: 12px;
-    color: rouge;
+    color: #334155;
     margin-top: .5rem;
 }
 div[data-testid="stAlert"] { border-radius: 13px; }
@@ -335,6 +361,58 @@ def preparer_donnees(cfg, encoders, df):
     return X, donnees_valides.index, None
 
 
+# Traduction des noms affichés dans le formulaire.
+# Les noms de colonnes originaux restent inchangés pour les modèles et les CSV.
+LIBELLES = {
+    # Insuffisance cardiaque
+    "age": "Âge du patient",
+    "anaemia": "Anémie",
+    "creatinine_phosphokinase": "Créatine phosphokinase (CPK)",
+    "diabetes": "Diabète",
+    "ejection_fraction": "Fraction d’éjection",
+    "high_blood_pressure": "Hypertension artérielle",
+    "platelets": "Plaquettes sanguines",
+    "serum_creatinine": "Créatinine sérique",
+    "serum_sodium": "Sodium sérique",
+    "sex": "Sexe",
+    "smoking": "Tabagisme",
+    "time": "Durée du suivi",
+    "DEATH_EVENT": "Événement de décès (0/1)",
+
+    # Graines de blé
+    "area A": "Surface de la graine",
+    "perimeter": "Périmètre",
+    "compactness": "Compacité",
+    "length of kernel": "Longueur du grain",
+    "width of kernel": "Largeur du grain",
+    "asymmetry coefficient": "Coefficient d’asymétrie",
+    "length of kernel groove": "Longueur du sillon du grain",
+
+    # Télécommunications
+    "Call Failure": "Nombre d’échecs d’appel",
+    "Complains": "Réclamations (0/1)",
+    "Subscription Length": "Ancienneté de l’abonnement",
+    "Charge Amount": "Montant facturé",
+    "Seconds of Use": "Durée d’utilisation (secondes)",
+    "Frequency of use": "Fréquence d’utilisation",
+    "Frequency of SMS": "Fréquence des SMS",
+    "Distinct Called Numbers": "Nombre de numéros appelés",
+    "Age Group": "Tranche d’âge",
+    "Status": "Statut du client",
+    "Age": "Âge du client",
+    "Customer Value": "Valeur du client",
+
+    # Produits PriceRunner
+    "Product ID": "Identifiant du produit",
+    "Product Title": "Nom du produit",
+    "Merchant ID": "Identifiant du vendeur",
+    "Cluster ID": "Identifiant du cluster",
+    "Cluster Label": "Libellé du cluster",
+    "Category ID": "Identifiant de la catégorie",
+    "Category Label": "Nom de la catégorie",
+}
+
+
 # ---------------------------------------------------------------------------
 # FONCTIONS DES DEUX MODES DE PRÉDICTION
 # ---------------------------------------------------------------------------
@@ -395,11 +473,11 @@ def onglet_prediction_simple(cfg, scaler, pca, model, encoders, cle):
             if col in cfg["encodees"] and col in encoders:
                 options = [str(c) for c in encoders[col].classes_]
                 if len(options) <= 500:
-                    st.selectbox(col, options, key=k)
+                    st.selectbox(LIBELLES.get(col, col), options, key=k)
                 else:
-                    st.text_input(col, key=k)
+                    st.text_input(LIBELLES.get(col, col), key=k)
             else:
-                st.number_input(col, key=k, format="%.4f")
+                st.number_input(LIBELLES.get(col, col), key=k, format="%.4f")
 
     st.markdown("---")
     if st.button(
