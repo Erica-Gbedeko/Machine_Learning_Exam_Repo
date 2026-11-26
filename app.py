@@ -120,6 +120,20 @@ div[data-baseweb="select"] * {
     -webkit-text-fill-color: #111827 !important;
 }
 
+/* Intitulés personnalisés au-dessus des champs : indépendants du thème Streamlit */
+.field-label {
+    color: #111827 !important;
+    background: transparent !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 800 !important;
+    opacity: 1 !important;
+    margin: 0 0 7px 2px !important;
+    padding: 0 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
 /* Survol des champs */
 div[data-testid="stNumberInput"]:hover,
 div[data-testid="stSelectbox"]:hover,
@@ -469,15 +483,27 @@ def onglet_prediction_simple(cfg, scaler, pca, model, encoders, cle):
     colonnes_ui = st.columns(3)
     for i, col in enumerate(colonnes):
         k = f"{cle}_{col}"
+        libelle = LIBELLES.get(col, col)
         with colonnes_ui[i % 3]:
+            # Le libellé est affiché séparément pour rester lisible quel que soit le thème.
+            st.markdown(
+                f'<div class="field-label">{html.escape(libelle)}</div>',
+                unsafe_allow_html=True
+            )
             if col in cfg["encodees"] and col in encoders:
                 options = [str(c) for c in encoders[col].classes_]
                 if len(options) <= 500:
-                    st.selectbox(LIBELLES.get(col, col), options, key=k)
+                    st.selectbox(
+                        libelle, options, key=k, label_visibility="collapsed"
+                    )
                 else:
-                    st.text_input(LIBELLES.get(col, col), key=k)
+                    st.text_input(
+                        libelle, key=k, label_visibility="collapsed"
+                    )
             else:
-                st.number_input(LIBELLES.get(col, col), key=k, format="%.4f")
+                st.number_input(
+                    libelle, key=k, format="%.4f", label_visibility="collapsed"
+                )
 
     st.markdown("---")
     if st.button(
