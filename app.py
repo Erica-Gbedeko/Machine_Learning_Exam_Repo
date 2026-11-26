@@ -53,7 +53,7 @@ st.markdown("""
     font-size: 1rem;
 }
 h1, h2, h3 {
-    color: #172554 !important;
+    color: noire !important;
     font-weight: 750 !important;
 }
 h1 { border: 0; }
