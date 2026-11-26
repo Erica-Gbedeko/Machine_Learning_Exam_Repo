@@ -39,7 +39,7 @@ st.markdown("""
     box-shadow: 0 12px 30px rgba(30, 41, 59, 0.16);
 }
 .hero h1 {
-    color: noire !important;
+    color: blanc !important;
     margin: 0;
     padding: 0;
     border: 0;
