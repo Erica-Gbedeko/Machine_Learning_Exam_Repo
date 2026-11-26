@@ -97,7 +97,7 @@ div[data-testid="stTextInput"]:hover {
     box-shadow: 0 5px 16px rgba(99,102,241,.10);
 }
 div[data-testid="stWidgetLabel"] p {
-    color: #334155;
+    color: noire;
     font-weight: 650;
 }
 
