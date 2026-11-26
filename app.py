@@ -541,11 +541,10 @@ def onglet_prediction_multiple(cfg, scaler, pca, model, encoders, cle):
 # ---------------------------------------------------------------------------
 with st.sidebar:
     st.markdown("## 🤖 Erica app")
-    st.caption("Espace de segmentation")
     st.divider()
 
     choix = st.radio(
-        "CHOISIR UN MODÈLE",
+        "Sélectionner un jeu de données",
         list(DATASETS.keys()),
         key="dataset_choisi"
     )
@@ -581,8 +580,8 @@ cle = choix.replace(" ", "_").replace("(", "").replace(")", "")
 st.markdown("---")
 
 tab_simple, tab_multiple = st.tabs([
-    "✍️ Prédiction simple",
-    "📁 Prédiction multiple (CSV)"
+    "✍️ Analyse individuelle",
+    "📁 Analyse par fichier (CSV)"
 ])
 
 with tab_simple:
