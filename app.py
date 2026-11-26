@@ -57,7 +57,7 @@ h1, h2, h3 {
     font-weight: 750 !important;
 }
 h1 { border: 0; }
-div[data-testid="stCaptionContainer"] p { color: #64748b; }
+div[data-testid="stCaptionContainer"] p { color: noire; }
 
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #111827 0%, #1e1b4b 100%);
