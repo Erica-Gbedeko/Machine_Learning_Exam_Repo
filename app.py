@@ -85,7 +85,7 @@ DATASETS = {
     },
     "Produits (PriceRunner)": {
         "dossier": "pricerunner",
-        "titre": "Segmentation des produits - modèle CAH",
+        "titre": "Segmentation des produits - modèle KMEANS ",
         "description": "Saisissez les caractéristiques d'un produit pour connaître sa classe.",
         "colonnes": [
             "Product ID", "Product Title", "Merchant ID", "Cluster ID",
